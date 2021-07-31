@@ -1,5 +1,5 @@
 # Compose Simple Appp Example
-Creating simple app based on jetpack compose
+Creating simple app using jetpack compose with Lazy Column and others component of that avaible in the jetpack compose.
 
 ## App Screenshot:
 <p align="center">

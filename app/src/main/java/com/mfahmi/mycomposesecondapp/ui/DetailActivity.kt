@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -65,47 +66,60 @@ fun DetailComposeMainFunction(profile: Profile) {
 
 @Composable
 fun CardDetailProfile(profile: Profile) {
-    Card(
-        elevation = dimenSuperSmall,
-        modifier = Modifier
-            .padding(horizontal = dimenSmall, vertical = dimenSmall)
-            .padding(dimenSmall, dimenSuperSmall)
-            .clip(RoundedCornerShape(dimenStandard))
-            .fillMaxWidth()
-    )
-    {
-        Column {
-            Row(
-                Modifier
-                    .padding(dimenStandard),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                ImageViewCompose(
-                    drawableImage = R.drawable.profile_picture,
-                    size = 120.dp,
-                    shape = RoundedCornerShape(
-                        dimenSmall
-                    ),
-                )
-                MarginCompose(size = dimenSmall)
-                StarIconShape()
-                MarginCompose(size = dimenSmall)
-                Column {
-                    TextViewCompose(
-                        tvTextValue = profile.name,
-                        textColor = MaterialTheme.colors.onSurface,
-                        textSize = 20.sp,
+    Column {
+        Card(
+            elevation = dimenSuperSmall,
+            modifier = Modifier
+                .padding(horizontal = dimenSmall, vertical = dimenSmall)
+                .padding(dimenSmall, dimenSuperSmall)
+                .clip(RoundedCornerShape(dimenStandard))
+                .fillMaxWidth()
+        )
+        {
+            Column {
+                Row(
+                    Modifier
+                        .padding(dimenStandard),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    ImageViewCompose(
+                        drawableImage = R.drawable.profile_picture,
+                        size = 120.dp,
+                        shape = RoundedCornerShape(
+                            dimenSmall
+                        ),
                     )
-                    MarginCompose(size = dimenSuperSmall)
-                    TextViewCompose(
-                        tvTextValue = profile.email,
-                        textColor = MaterialTheme.colors.onSurface,
-                        textSize = 12.sp
-                    )
+                    MarginCompose(size = dimenSmall)
+                    StarIconShape()
+                    MarginCompose(size = dimenSmall)
+                    Column {
+                        TextViewCompose(
+                            tvTextValue = profile.name,
+                            textColor = MaterialTheme.colors.onSurface,
+                            textSize = 20.sp,
+                        )
+                        MarginCompose(size = dimenSuperSmall)
+                        TextViewCompose(
+                            tvTextValue = profile.email,
+                            textColor = MaterialTheme.colors.onSurface,
+                            textSize = 12.sp
+                        )
+                    }
                 }
+                ButtonCompose()
             }
-            ButtonCompose()
         }
+        Text(
+            text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                    "Nullam nec tortor in augue pellentesque porttitor sit amet non est. " +
+                    "Orci varius natoque penatibus et magnis dis parturient montes, " +
+                    "nascetur ridiculus mus. Morbi ut feugiat risus. " +
+                    "Mauris ut tortor molestie, molestie dolor eu, hendrerit odio. Nullam eu maximus odio.",
+            color = MaterialTheme.colors.onSurface,
+            modifier = Modifier.padding(dimenStandard),
+            textAlign = TextAlign.Justify
+        )
+
     }
 }
 
@@ -114,7 +128,8 @@ fun ButtonCompose() {
     Row(
         Modifier
             .padding(dimenStandard)
-            .fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+            .fillMaxWidth(), horizontalArrangement = Arrangement.Center
+    ) {
         ButtonDefaultCompose(buttonText = "Edit Profile")
         MarginCompose(size = dimenSmall)
         ButtonDefaultCompose(buttonText = "Log Out")

@@ -18,23 +18,28 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainComposeFunction()
+            MainComposeFunction {
+                startActivity(DetailActivity.intentToDetail(this, it))
+            }
         }
     }
 }
 
 @Composable
-fun MainComposeFunction() {
+fun MainComposeFunction(navigateToDetail: (Profile) -> Unit) {
     MyComposeSecondAppTheme {
-        RecyclerViewComposeMain(profiles = DummyData.profileData)
+        RecyclerViewComposeMain(
+            profiles = DummyData.profileData,
+            navigateToDetail = navigateToDetail
+        )
     }
 }
 
 @Composable
-fun RecyclerViewComposeMain(profiles: List<Profile>) {
+fun RecyclerViewComposeMain(profiles: List<Profile>, navigateToDetail: (Profile) -> Unit) {
     LazyColumn {
         items(profiles) { profileData ->
-            ItemsProfile(profileData)
+            ItemsProfile(profileData, navigateToDetail)
         }
     }
 }
@@ -42,7 +47,7 @@ fun RecyclerViewComposeMain(profiles: List<Profile>) {
 @Preview(name = "Dark Mode", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun DarkMode() {
-    MainComposeFunction()
+    MainComposeFunction { }
 }
 
 //@Preview(name = "Light Mode", showBackground = true)

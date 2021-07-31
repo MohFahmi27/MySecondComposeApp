@@ -1,3 +1,5 @@
 package com.mfahmi.mycomposesecondapp.models
 
-data class Profile(val name: String, val email: String)
+import java.io.Serializable
+
+data class Profile(val name: String, val email: String): Serializable

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.mfahmi.mycomposesecondapp">
 
     <application
@@ -8,7 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyComposeSecondApp">
+        android:theme="@style/Theme.MyComposeSecondApp"
+        tools:ignore="AllowBackup">
+        <activity
+            android:name=".ui.DetailActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyComposeSecondApp.NoActionBar" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

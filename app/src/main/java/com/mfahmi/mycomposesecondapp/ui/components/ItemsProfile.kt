@@ -1,5 +1,6 @@
 package com.mfahmi.mycomposesecondapp.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,12 +23,13 @@ import com.mfahmi.mycomposesecondapp.ui.theme.dimenStandard
 import com.mfahmi.mycomposesecondapp.ui.theme.dimenSuperSmall
 
 @Composable
-fun ItemsProfile(profile: Profile) {
+fun ItemsProfile(profile: Profile, navigateToDetail: (Profile) -> Unit) {
     Card(
         elevation = dimenSuperSmall,
         modifier = Modifier
             .padding(horizontal = dimenSmall, vertical = dimenSmall)
             .clip(RoundedCornerShape(dimenStandard))
+            .clickable { navigateToDetail(profile) }
     ) {
         Row(
             modifier = Modifier

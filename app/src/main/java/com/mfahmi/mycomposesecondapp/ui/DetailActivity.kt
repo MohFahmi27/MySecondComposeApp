@@ -141,8 +141,8 @@ fun ButtonDefaultCompose(buttonText: String) {
     Button(
         onClick = { },
         shape = RoundedCornerShape(dimenSmall),
-        border = BorderStroke(2.dp, MaterialTheme.colors.secondary),
-        modifier = Modifier.size(160.dp, 55.dp)
+        border = BorderStroke(1.dp, MaterialTheme.colors.secondary),
+        modifier = Modifier.size(160.dp, 45.dp)
     ) {
         TextViewCompose(
             tvTextValue = buttonText,
